@@ -17,7 +17,7 @@ dependencies:
   - openff-forcefields
   - smirnoff99Frosst
   - openff-units >=0.2
-  - openff-models >=0.2
+  - openff-models
   - openff-utilities >=0.1.5
   # openff-interchange-base >=0.3.3
   # openff-nagl >=0.2.2
