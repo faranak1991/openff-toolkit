@@ -36,7 +36,7 @@ jobs:
             openeye: false
           - openeye: true
             python-version: "3.10"
-          - rdkit: true
+          - openeye: true
             python-version: "3.11"
 
     env:
