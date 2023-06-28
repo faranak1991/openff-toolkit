@@ -820,25 +820,6 @@ class TestParameterList:
         p2 = ParameterType(smirks="[#1:1]")
         ParameterList([p1, p2])
 
-    @pytest.mark.wip(
-        reason="Until ChemicalEnvironment won't be refactored to use the ToolkitRegistry "
-        "API, the smirks assignment will fail with RDKit."
-    )
-    def test_getitem(self):
-        """Test ParameterList __getitem__ overloading."""
-        p1 = ParameterType(smirks="[*:1]")
-        p2 = ParameterType(smirks="[#1:1]")
-        parameters = ParameterList([p1, p2])
-        assert parameters[0] == p1
-        assert parameters[1] == p2
-        assert parameters[p1.smirks] == p1
-        assert parameters[p2.smirks] == p2
-
-        # Note that this call access __getitem__, not __setitem__.
-        parameters["[*:1]"].smirks = "[*X4:1]"
-        assert parameters[0].smirks == "[*X4:1]"
-        assert p1.smirks == "[*X4:1]"
-
     def test_index(self):
         """
         Tests the ParameterList.index() function by attempting lookups by SMIRKS and by ParameterType equivalence.
@@ -2147,14 +2128,10 @@ class TestVirtualSiteHandler:
         molecule = Molecule.from_smiles(smiles, allow_undefined_stereo=True)
         topology: Topology = molecule.to_topology()
 
-        topology_atoms = {
-            i: topology_atom for i, topology_atom in enumerate(topology.topology_atoms)
-        }
+        atoms = {i: atom for i, atom in enumerate(topology.atoms)}
 
         with expected_raises:
-            VirtualSiteHandler._validate_found_match(
-                topology_atoms, matched_indices, parameter
-            )
+            VirtualSiteHandler._validate_found_match(atoms, matched_indices, parameter)
 
     @pytest.mark.parametrize(
         "handler_a, handler_b, expected_raises",
