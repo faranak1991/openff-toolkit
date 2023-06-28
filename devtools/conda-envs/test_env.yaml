@@ -18,6 +18,7 @@ dependencies:
   - smirnoff99Frosst
   - openff-models
   - openff-units =0.2.0
+  - openff-amber-ff-ports
   - openff-utilities >=0.1.5
   # openff-interchange-base >=0.3.3
   # openff-nagl >=0.2.2
