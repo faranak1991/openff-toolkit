@@ -39,4 +39,4 @@ dependencies:
   - qcengine
   - typing_extensions
   - pip:
-    - git+https://github.com/openforcefield/openff-interchange@v0.3.4
+    - git+https://github.com/openforcefield/openff-interchange@v0.3.7
