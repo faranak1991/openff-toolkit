@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 %VERSION  VERSION_STAMP = V0001.000  DATE = 07/11/23  17:01:32
+=======
+%VERSION  VERSION_STAMP = V0001.000  DATE = 07/04/23  18:47:13
+>>>>>>> Stashed changes
 %FLAG TITLE
 %FORMAT(20a4)
 
